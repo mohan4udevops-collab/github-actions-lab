@@ -2,7 +2,10 @@ name: 03 - Using Actions workflow
 on: push
 jobs:
     build:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-
+        defaults:
+          run:
+            working-directory: using-actions/react-app  
         steps:
             - name: checkout code
               uses: actions/checkout@v4
@@ -12,7 +15,7 @@ jobs:
                 node-version: '20.x'
             - name: Install dependecies
               run: npm ci
-              working-directory: using-actions/react-app
+              
             - name: Run Automated Tests
               run: npm run test
-              working-directory:   using-actions/react-app 
+               
