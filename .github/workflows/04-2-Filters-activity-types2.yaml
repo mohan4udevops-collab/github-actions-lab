@@ -1,0 +1,12 @@
+name: 04 -2 Filters when PR is closed
+on:
+    pull_request: 
+        types: 
+            - closed
+        branches: 
+            - main
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo " Running echo whenever PR is closed"                
