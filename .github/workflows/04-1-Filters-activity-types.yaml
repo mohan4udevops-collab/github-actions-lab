@@ -11,4 +11,4 @@ jobs:
     echo:
         runs-on: ubuntu-latest
         steps:
-            - run: "running whenever a PR is opened or synchronized and base branch main"    
+            - run: echo "running whenever a PR is opened or synchronized and base branch main"    
