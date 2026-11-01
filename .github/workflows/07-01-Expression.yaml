@@ -1,0 +1,30 @@
+name: 07-01 Practise Expression
+on:
+    push:
+    workflow_dispatch: 
+        inputs:
+            debug:
+                type: boolean
+                default: false    
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: '[Debug] print start-up information'
+              if: ${{ inputs.debug }}
+              run: |
+                echo " Triggered by Event: ${{ github.event_name }}"
+                echo " Branch name: ${{ github.ref }}"
+                echo " commit sha: ${{ github.sha }}"
+                echo " Runner os: ${{ runner.os }}"
+                echo " Actor is: ${{ github.actor }}"
+                echo " Run id is: ${{ github.run_id }}"
+                echo " Runner No is: ${{ github.run_number }}"
+            - name: '[Debug] print when triggered from main'
+               if: ${{ inputs.debug && github.ref == 'refs/heads/main'}}
+               run: |
+                 echo " I was triggered by main"
+            - name: Greeting
+              run: |
+                echo " Hello World "
+                echo " Iam successful"        
